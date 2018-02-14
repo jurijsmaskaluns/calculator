@@ -41,7 +41,7 @@ public class Calculator {
             double c = Double.parseDouble(expression[4]);
             String op2 = expression[3];
             if (op2.equals("*") || op2.equals("/")) {
-                System.out.println("srabotalo * ili /");
+                System.out.println("vtoroj znak * ili /");
                 switch (op2) {
                     case "*":
                         calc = b * c;
@@ -70,8 +70,35 @@ public class Calculator {
                 }
 //                return "error2";
             } else {
-                System.out.println("srabotalo + ili -");
-                return "error3";
+                System.out.println("vtoroj znak + ili -");
+//                return "error3";
+                switch (op1) {
+                    case "+":
+                        calc = a + b;
+                        break;
+                    case "-":
+                        calc = a - b;
+                        break;
+                    case "*":
+                        calc = a * b;
+                        break;
+                    case "/":
+                        calc = a / b;
+                        break;
+                    default:
+                        return "error2";
+                }
+                switch (op2) {
+                    case "+":
+                        result = calc + c;
+                        break;
+                    case "-":
+                        result = calc - c;
+                        break;
+                    default:
+                        return "error2";
+                }
+//                return String.valueOf(result);
             }
         }
         return String.valueOf(result);
