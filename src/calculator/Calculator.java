@@ -34,14 +34,14 @@ public class Calculator {
                     result = a / b;
                     break;
                 default:
-                    return "error1";
+                    return "error 1";
             }
 
         } else {
             double c = Double.parseDouble(expression[4]);
             String op2 = expression[3];
-            if (op2.equals("*") || op2.equals("/")) {
-                System.out.println("vtoroj znak * ili /");
+            if ((op1.equals("+") || op1.equals("-")) && (op2.equals("*") || op2.equals("/"))) {
+                System.out.println("op1: +-; op2: */");
                 switch (op2) {
                     case "*":
                         calc = b * c;
@@ -50,7 +50,7 @@ public class Calculator {
                         calc = b / c;
                         break;
                     default:
-                        return "error2";
+                        return "error 2";
                 }
                 switch (op1) {
                     case "+":
@@ -59,19 +59,11 @@ public class Calculator {
                     case "-":
                         result = a - calc;
                         break;
-                    case "*":
-                        result = a * calc;
-                        break;
-                    case "/":
-                        result = a / calc;
-                        break;
                     default:
-                        return "error2";
+                        return "error 3";
                 }
-//                return "error2";
             } else {
-                System.out.println("vtoroj znak + ili -");
-//                return "error3";
+                System.out.println("op1: +-*/; op2: +-");
                 switch (op1) {
                     case "+":
                         calc = a + b;
@@ -86,7 +78,7 @@ public class Calculator {
                         calc = a / b;
                         break;
                     default:
-                        return "error2";
+                        return "error 4";
                 }
                 switch (op2) {
                     case "+":
@@ -95,10 +87,15 @@ public class Calculator {
                     case "-":
                         result = calc - c;
                         break;
+                    case "*":
+                        result = calc * c;
+                        break;
+                    case "/":
+                        result = calc / c;
+                        break;
                     default:
-                        return "error2";
+                        return "error 5";
                 }
-//                return String.valueOf(result);
             }
         }
         return String.valueOf(result);
